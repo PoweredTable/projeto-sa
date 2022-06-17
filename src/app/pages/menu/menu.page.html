@@ -9,7 +9,7 @@
         </ion-button>
       </ion-buttons>
 
-      <ion-title>{{pages[activeIndex]['title']}}</ion-title>
+      <ion-title>{{active_page}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -26,13 +26,12 @@
 
           <ion-menu-toggle auto-hide="false" *ngFor="let page of pages; let i = index">
             <div *ngIf="!page.footer; else footer">
-              <ion-item (click)="index_change(i)" routerDirection="root" [routerLink]="[page.url]"
-                [class.selected]="activeIndex == i">
+              <ion-item (click)="navigate_to_url(page.url, page.title)" routerDirection="root"
+                [class.selected]="activeIndex === i">
                 <ion-icon slot="start" [name]="page.icon"></ion-icon>
                 <ion-label>{{ page.title }}</ion-label>
               </ion-item>
             </div>
-          
           </ion-menu-toggle>
 
         </ion-list>

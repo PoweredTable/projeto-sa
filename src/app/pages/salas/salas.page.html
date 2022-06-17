@@ -1,15 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>salas</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-text-center">
-  <ion-card>
-    <img src="https://cdn.discordapp.com/attachments/707292830158159885/986774270451535972/Logo_para_Wadyr_viado.PNG" />
+  <ion-card *ngFor="let sala of salas">
     <ion-card-header>
-      <ion-card-subtitle>Periodo</ion-card-subtitle>
-      <ion-card-title>Nome</ion-card-title>
+      <ion-card-title>{{sala.nome}}</ion-card-title>
+      <ion-card-subtitle *ngIf="sala.alunos>1; else singular">{{sala.alunos}} alunos</ion-card-subtitle>
+      <ng-template #singular>
+        <ion-card-subtitle >{{sala.alunos}} aluno</ion-card-subtitle>
+      </ng-template>
     </ion-card-header>
   </ion-card>
 
