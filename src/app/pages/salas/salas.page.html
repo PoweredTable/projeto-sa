@@ -11,7 +11,7 @@
       <ion-card-title class="font-subtitle">Turno</ion-card-title>
      
       <ion-card-title id="card-title">
-          <ion-button id="back-button">
+          <ion-button id="back-button" (click)="show_modal_open_blocks()">
             <ion-icon name="caret-forward-outline" id="size-icon" size="large"></ion-icon>
           </ion-button>
       </ion-card-title>  
@@ -29,9 +29,9 @@
 
 
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button color="black" (click)="show_modal()">
+    <ion-fab-button color="black" (click)="show_modal_add_sala()">
       <ion-icon md="add" ios="chevron-back-circle-outline" id="color"></ion-icon>
-
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>

@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'banco-perguntas',
     loadChildren: () => import('./pages/banco-perguntas/banco-perguntas.module').then( m => m.BancoPerguntasPageModule)
+  },
+  {
+    path: 'play',
+    loadChildren: () => import('./pages/play/play.module').then( m => m.PlayPageModule)
   }
   
 ];
