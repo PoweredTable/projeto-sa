@@ -33,7 +33,7 @@ export class MenuPage implements OnInit {
       title: 'Desconectar',
       url: '/login',
       icon: "log-out-outline",
-      footer: false
+      footer: true
     }
   ];
 

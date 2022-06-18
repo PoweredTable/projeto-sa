@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bloco de perguntas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +14,7 @@
   </ion-card>
 
 <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
-  <ion-fab-button color="black" id="trigger-button">
+  <ion-fab-button color="black" (click)="show_modal()">
     <ion-icon md="add" ios="chevron-back-circle-outline" id="color"></ion-icon>
   </ion-fab-button>
 </ion-fab>

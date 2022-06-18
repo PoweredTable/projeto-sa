@@ -15,10 +15,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/banco-perguntas/banco-perguntas.module').then( m => m.BancoPerguntasPageModule)
   },
   {
+    path: 'cadastro-bl-pergunta',
+    loadChildren: () => import('./pages/cadastro-bl-pergunta/cadastro-bl-pergunta.module').then( m => m.CadastroBlPerguntaPageModule)
+  },
+  {
     path: 'play',
     loadChildren: () => import('./pages/play/play.module').then( m => m.PlayPageModule)
   }
-  
 ];
 
 @NgModule({

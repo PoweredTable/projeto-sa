@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CadastroSalaPage } from './cadastro-sala.page';
+import { CadastroBlPerguntaPage } from './cadastro-bl-pergunta.page';
 
 @NgModule({
   imports: [
@@ -13,6 +13,6 @@ import { CadastroSalaPage } from './cadastro-sala.page';
     IonicModule,
     ReactiveFormsModule
   ],
-  declarations: [CadastroSalaPage]
+  declarations: [CadastroBlPerguntaPage]
 })
-export class CadastroSalaPageModule {}
+export class CadastroBlPerguntaPageModule {}

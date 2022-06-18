@@ -1,0 +1,41 @@
+<ion-content>
+  <form [formGroup]="new_block_FormGroup">
+    <div id="back">
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="submit_modal()" [disabled]="new_block_FormGroup.invalid">
+            <ion-icon name="checkmark-outline" aria-setsize="100px"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Novo bloco</ion-title>
+        <ion-buttons slot="start">
+          <ion-button>
+            <ion-buttons slot="start">
+              <ion-button (click)="dismiss_modal()">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+
+      <ion-item id="padding1">
+        <ion-label position="fixed">Nome:</ion-label>
+        <ion-input formControlName="nome"></ion-input>
+      </ion-item>
+      <div *ngIf="new_block_FormGroup.get('nome').hasError('required') && new_block_FormGroup.get('nome').touched">
+        Este campo é obrigatório!
+      </div>
+
+      <div *ngIf="new_block_FormGroup.get('nome').hasError('maxlength') && new_block_FormGroup.get('nome').touched">
+        O nome da turma não pode ter mais de 14 caracteres!
+      </div>
+
+      <ion-item padding="20px">
+        <ion-label position="stacked">Descrição (opcional)</ion-label>
+        <ion-textarea formControlName="descricao"></ion-textarea>
+      </ion-item>
+    </div>
+  </form>
+</ion-content>
