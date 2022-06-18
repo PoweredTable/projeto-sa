@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="">
-  <ion-card *ngFor="let sala of salas" class="grid">
+  <ion-card *ngFor="let class of current_classes['professor_classes']" class="grid">
     <ion-card-header>
-      <ion-card-title class="font-title">{{sala.nome}}</ion-card-title>
-      <ion-card-title class="font-subtitle">Turno</ion-card-title>
+      <ion-card-title class="font-title">{{class.name}}</ion-card-title>
+      <ion-card-title class="font-subtitle">{{class.shift}}</ion-card-title>
      
       <ion-card-title id="card-title">
           <ion-button id="back-button">
@@ -16,14 +16,7 @@
           </ion-button>
       </ion-card-title>  
            
-      <ion-card-subtitle *ngIf="sala.alunos>1; else singular" class="font-subtitle1" >{{sala.alunos}}/total alunos online</ion-card-subtitle>
-      <ng-template #singular>
-
-        <ion-card-subtitle class="font-subtitle1">{{sala.alunos}}/ aluno online</ion-card-subtitle>
-
-        
-
-      </ng-template>
+      <ion-card-subtitle class="font-subtitle1" >{{class.description}}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 

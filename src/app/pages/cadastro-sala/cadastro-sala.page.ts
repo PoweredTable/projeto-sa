@@ -16,6 +16,7 @@ export class CadastroSalaPage implements OnInit {
   ngOnInit() {
     this.new_class_FormGroup = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.maxLength(14)]),
+      
       turno: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.maxLength(25)])
     })
@@ -23,6 +24,7 @@ export class CadastroSalaPage implements OnInit {
 
   submit_modal(){
     console.log(this.new_class_FormGroup.value)
+    this.dismiss_modal()
   }
 
 

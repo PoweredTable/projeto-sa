@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CadastroSalaPageRoutingModule } from './cadastro-sala-routing.module';
-
 import { CadastroSalaPage } from './cadastro-sala.page';
 
 @NgModule({
@@ -13,7 +11,6 @@ import { CadastroSalaPage } from './cadastro-sala.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CadastroSalaPageRoutingModule,
     ReactiveFormsModule
   ],
   declarations: [CadastroSalaPage]

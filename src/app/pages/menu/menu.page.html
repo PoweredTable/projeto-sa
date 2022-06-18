@@ -32,6 +32,15 @@
                 <ion-label>{{ page.title }}</ion-label>
               </ion-item>
             </div>
+            <ng-template #footer>
+            <div>
+              <ion-item (click)="navigate_to_url(page.url, page.title)" routerDirection="root"
+                [class.selected]="activeIndex === i">
+                <ion-icon slot="start" [name]="page.icon"></ion-icon>
+                <ion-label>{{ page.title }}</ion-label>
+              </ion-item>
+            </div>
+          </ng-template>
           </ion-menu-toggle>
 
         </ion-list>

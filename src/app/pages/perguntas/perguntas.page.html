@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bloco de perguntas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,58 +10,11 @@
       <ion-card-title class="font-title">gewgw</ion-card-title>
       <ion-card-title class="font-subtitle">Turno</ion-card-title>
 
-      
-     
     </ion-card-header>
   </ion-card>
 
-<ion-content>
-
-<ion-modal trigger="trigger-button1">
-  <ng-template>
-    <ion-content>
-    <div id="back">
-      <ion-toolbar>
-        <ion-buttons slot="end">
-          <ion-button>
-            <ion-icon name="checkmark-outline" aria-setsize="100px"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Cadastro Bloco </ion-title>
-        <ion-buttons slot="start">
-          <ion-button>
-            <ion-buttons slot="start">
-              <ion-button>
-                <ion-icon name="close-outline"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-      
-      
-      <ion-item id="padding1">
-        <ion-label position="fixed">Nome:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-
-      <ion-item id="padding1">
-        <ion-label position="fixed">Data:</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-
-      <ion-item id="padding1">
-        <ion-label position="stacked">Textarea</ion-label>
-        <ion-textarea placeholder="placeholder"></ion-textarea>
-      </ion-item>
-      </div>
-
-    </ion-content>
-  </ng-template>
-</ion-modal>
-
 <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
-  <ion-fab-button color="black" id="trigger-button">
+  <ion-fab-button color="black" (click)="show_modal()">
     <ion-icon md="add" ios="chevron-back-circle-outline" id="color"></ion-icon>
   </ion-fab-button>
 </ion-fab>
