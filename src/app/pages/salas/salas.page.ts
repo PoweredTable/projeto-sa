@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { CadastroSalaPage } from '../cadastro-sala/cadastro-sala.page';
+import { PlayPage } from '../play/play.page';
 
 @Component({
   selector: 'app-salas',
@@ -27,13 +30,40 @@ export class SalasPage implements OnInit {
     alunos: 17
   }]
 
-  constructor(private router: Router) { }
+  ionModalOpen: Boolean
+
+
+  constructor(private router: Router, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
+  async show_modal_add_sala(){
+    const modal = await this.modalCtrl.create({
+      component: CadastroSalaPage
+    })
+
+    await modal.present()
+
+  }
+
+
   navigate_to_cadastro_sala() {
     this.router.navigate(['cadastro-salas'])
+  }
+
+  async show_modal_open_blocks(){
+    const modal = await this.modalCtrl.create({
+      component: PlayPage
+    })
+
+    await modal.present()
+
+  }
+
+
+  navigate_to_play_all() {
+    this.router.navigate(['play'])
   }
 
 }

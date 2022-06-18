@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cadastro-sala',
@@ -8,13 +9,25 @@ import { Router } from '@angular/router';
 })
 export class CadastroSalaPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private modalCtrl: ModalController) { }
+
+  new_class_FormGroup: FormGroup;
 
   ngOnInit() {
+    this.new_class_FormGroup = new FormGroup({
+      nome: new FormControl('', [Validators.required, Validators.maxLength(14)]),
+      turno: new FormControl('', [Validators.required]),
+      descricao: new FormControl('', [Validators.maxLength(25)])
+    })
   }
 
-  navigate_to_salas(){
-    this.router.navigate(['/menu/salas'])
+  submit_modal(){
+    console.log(this.new_class_FormGroup.value)
+  }
+
+
+  dismiss_modal(){
+    this.modalCtrl.dismiss()
   }
 
 }

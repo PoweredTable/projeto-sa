@@ -1,0 +1,25 @@
+#size-icon{
+  size: 80px;  
+}
+
+.font-title{
+    font-size: 15px;
+   
+}
+.align-right{
+    text-align: right;
+}
+
+ion-accordion {
+    margin: 0 auto;
+  }
+  
+ion-accordion.accordion-expanding,
+ion-accordion.accordion-expanded {
+    width: calc(100% - 32px);
+    margin: 16px auto;
+  }
+
+#font-header-accord{
+    font-size: 18px;
+}  
