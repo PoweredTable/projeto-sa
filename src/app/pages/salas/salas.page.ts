@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CadastroSalaPage } from '../cadastro-sala/cadastro-sala.page';
 import { classes } from '../interfaces/classes_int';
+import { PlayPage } from '../play/play.page';
+
 
 @Component({
   selector: 'app-salas',
@@ -49,7 +51,7 @@ export class SalasPage implements OnInit {
     this.current_classes = this.classes.find(id => id.professor_id == professor_id)
   }
 
-  async show_modal() {
+  async show_modal_add_sala(){
     const modal = await this.modalCtrl.create({
       component: CadastroSalaPage
     })
@@ -61,6 +63,20 @@ export class SalasPage implements OnInit {
 
   navigate_to_cadastro_sala() {
     this.router.navigate(['cadastro-salas'])
+  }
+
+  async show_modal_open_blocks(){
+    const modal = await this.modalCtrl.create({
+      component: PlayPage
+    })
+
+    await modal.present()
+
+  }
+
+
+  navigate_to_play_all() {
+    this.router.navigate(['play'])
   }
 
 }
