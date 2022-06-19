@@ -19,14 +19,6 @@ export class LoginPage implements OnInit {
     login: '',
     senha: null
   }
-  // pessoaL: any = { //obejto que recebe os dados do usuario
-  //   nome: '',
-  //   matricula: null,
-  //   email: '',
-  //   senha: null,
-  //   tipo: null,
-  //   usuario: '',
-  // }
 
   pessoaL: usuario
   matricula = null //variavel que recebe a matricula do usuario para enviar pra o menu
@@ -35,18 +27,15 @@ export class LoginPage implements OnInit {
     this.predefinidos();
   }
 
-
-
-
   predefinidos() {
 
-    var alunos: any = [
+    var alunos: usuario[] = [
       {
         usuario: "mario_maia",
         nome: "Mario",
         matricula: 0,
         email: "mario345@gmail.com",
-        senha: 123456,
+        senha: '123456',
         tipo: 3
       },
       {
@@ -54,32 +43,30 @@ export class LoginPage implements OnInit {
         nome: "Marcos",
         matricula: 1,
         email: "marcos345@gmail.com",
-        senha: 123456,
+        senha: '123456',
         tipo: 3
       }
     ]
     localStorage.setItem('alunos', JSON.stringify(alunos));
-    var professores: any = [
+    var professores: usuario[] = [
       {
         usuario: 'carla_silva',
         nome: "Carla",
-        id: 0,
+        matricula: 0,
         email: 'carla00@gmail.com',
-        senha: 123456,
+        senha: '123456',
         tipo: 2
       },
       {
         usuario: 'julio_andrade',
         nome: 'Julio',
-        id: 1,
+        matricula: 1,
         email: 'Julio98@gmail.com',
-        senha: 123456,
+        senha: '123456',
         tipo: 2
       }
     ];
     localStorage.setItem('professores', JSON.stringify(professores));
-    // console.log(localStorage.Usuarios());
-    // console.log(this.professores)
   }
 
 
@@ -128,7 +115,6 @@ export class LoginPage implements OnInit {
 
 
   enviaTelaProf() {
-    console.log('chegou aqui')
     let navigationExtras: NavigationExtras = {
       state: {
         pessoa:this.pessoaL
