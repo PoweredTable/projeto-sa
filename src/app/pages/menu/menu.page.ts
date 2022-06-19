@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, UrlTree } from '@angular/router';
+import { ActivatedRoute, Router, UrlTree } from '@angular/router';
+import { usuario } from '../interfaces/usuario_int';
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +9,7 @@ import { Router, UrlTree } from '@angular/router';
 })
 export class MenuPage implements OnInit {
   active_page: string
+  usuario_atual: usuario
 
   pages: { title: string, url: string, icon: string, footer: Boolean }[] = [
     {
@@ -43,7 +45,26 @@ export class MenuPage implements OnInit {
 
   ngOnInit(): void {}
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { 
+    this.route.queryParams.subscribe(params=> {
+      if(this.router.getCurrentNavigation().extras.state){
+        this.usuario_atual = this.router.getCurrentNavigation().extras.state['pessoa']
+
+        console.log('Usuário ', this.usuario_atual.usuario, ' logado!')
+      }
+      else{
+        this.usuario_atual = {
+          nome: 'undefined',
+          usuario: 'undefined', 
+          email: 'undefined@gmail.com', 
+          matricula: -1, senha: '', tipo: -1
+        }
+
+        console.log('O login não foi realizado na sessão atual.')
+        
+      }
+    })
+  }
 
   private search_for_title() {
     let page = this.pages.find(page => page.url === this.router.url)

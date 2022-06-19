@@ -23,58 +23,17 @@ export class LoginPage implements OnInit {
   pessoaL: usuario
   matricula = null //variavel que recebe a matricula do usuario para enviar pra o menu
   verificaLogin = true; //variavel que recebe o valor do ion-toglle
+
   ngOnInit() {
-    this.predefinidos();
   }
-
-  predefinidos() {
-
-    var alunos: usuario[] = [
-      {
-        usuario: "mario_maia",
-        nome: "Mario",
-        matricula: 0,
-        email: "mario345@gmail.com",
-        senha: '123456',
-        tipo: 3
-      },
-      {
-        usuario: 'marcos_santos',
-        nome: "Marcos",
-        matricula: 1,
-        email: "marcos345@gmail.com",
-        senha: '123456',
-        tipo: 3
-      }
-    ]
-    localStorage.setItem('alunos', JSON.stringify(alunos));
-    var professores: usuario[] = [
-      {
-        usuario: 'carla_silva',
-        nome: "Carla",
-        matricula: 0,
-        email: 'carla00@gmail.com',
-        senha: '123456',
-        tipo: 2
-      },
-      {
-        usuario: 'julio_andrade',
-        nome: 'Julio',
-        matricula: 1,
-        email: 'Julio98@gmail.com',
-        senha: '123456',
-        tipo: 2
-      }
-    ];
-    localStorage.setItem('professores', JSON.stringify(professores));
-  }
-
 
   login_in() { //funçao que o botao login chama 
-    var alunos = JSON.parse(localStorage.getItem("alunos"))
-    var professores = JSON.parse(localStorage.getItem("professores"))
+    let usuarios = JSON.parse(localStorage.getItem('users'))
+
+    const alunos: usuario[] = usuarios['alunos'];
+    const professores: usuario[] = usuarios['professores']
     var encontrado = false
-    // console.log(this.acesso)
+
     if (this.verificaLogin == false) {//se ion-toggle não estiver ativado faça:
       for (var pessoa of alunos) {
         if (this.acesso.login == pessoa.usuario && this.acesso.senha == pessoa.senha) {
@@ -84,29 +43,30 @@ export class LoginPage implements OnInit {
     } else {
       // console.log(this.verificaLogin)
       if (this.verificaLogin == true) { //se ion-toggle estiver ativado faça:
-        for (var pessoa of professores) { //para cada pessoa dentro de professores faça:
+        for (let pessoa of professores) { //para cada pessoa dentro de professores faça:
           if (this.acesso.login == pessoa.usuario && this.acesso.senha == pessoa.senha && encontrado == false) {
             // console.log(pessoa)
 
             //passando dados do usuario para o objeto global
             this.pessoaL = {
-              nome: pessoa.nome, 
-              senha: pessoa.senha, 
+              nome: pessoa.nome,
+              senha: pessoa.senha,
               email: pessoa.email,
-              matricula: pessoa.id,
+              matricula: pessoa.matricula,
               tipo: pessoa.tipo,
               usuario: pessoa.usuario
             }
             encontrado = true //enviando confirmaçao de usuario encontrado
             this.enviaTelaProf();
+            break
 
           } else {
             encontrado = false
           }
 
-         
+
         }
-        if(encontrado=false){
+        if (encontrado = false) {
           alert("Error")
         }
       }
@@ -117,7 +77,7 @@ export class LoginPage implements OnInit {
   enviaTelaProf() {
     let navigationExtras: NavigationExtras = {
       state: {
-        pessoa:this.pessoaL
+        pessoa: this.pessoaL
       }
     }
     this.router.navigate(["menu"], navigationExtras)

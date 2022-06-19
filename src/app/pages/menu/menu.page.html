@@ -23,6 +23,8 @@
 
       <ion-content>
         <ion-list id="inbox-list">
+          {{usuario_atual.nome}}
+          {{usuario_atual.email}}
 
           <ion-menu-toggle auto-hide="false" *ngFor="let page of pages; let i = index">
             <div *ngIf="!page.footer; else footer">
