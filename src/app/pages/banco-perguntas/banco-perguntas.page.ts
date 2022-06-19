@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-banco-perguntas',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BancoPerguntasPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
+  dismiss_modal(){
+    this.modalCtrl.dismiss()
+  }
 }

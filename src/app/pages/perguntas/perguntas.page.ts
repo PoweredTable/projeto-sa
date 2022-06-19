@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
+import { BancoPerguntasPage } from '../banco-perguntas/banco-perguntas.page';
 import { CadastroBlPerguntaPage } from '../cadastro-bl-pergunta/cadastro-bl-pergunta.page';
+
 
 
 @Component({
@@ -29,5 +31,20 @@ export class PerguntasPage implements OnInit {
   navigate_to_banco_perguntas(){
     this.router.navigate(['banco-perguntas'])
   }
+
+  async show_modal_perguntas(){
+    const modal = await this.modalCtrl.create({
+      component: BancoPerguntasPage
+    })
+
+    await modal.present()
+
+  }
+
+  navigate_to_perguntas(){
+    this.router.navigate(['banco-pergunta'])
+  }
+
+
 
 }

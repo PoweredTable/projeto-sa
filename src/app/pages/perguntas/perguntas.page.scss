@@ -4,3 +4,16 @@
 #color{
     color:#144d94;
 }
+.end{
+    text-align: center;
+}
+
+#back-button{
+    --background: transparent;
+    background-color: none;
+    backface-visibility: unset;
+    border-radius: 0;   
+}
+#card-title{
+    text-align: right;
+}
