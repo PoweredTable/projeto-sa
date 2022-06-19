@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CadastroSalaPage } from '../cadastro-sala/cadastro-sala.page';
 import { turmas } from '../interfaces/turmas_int';
 import { PlayPage } from '../play/play.page';
-
+import { usuario } from '../interfaces/usuario_int';
 
 @Component({
   selector: 'app-salas',
@@ -13,8 +13,16 @@ import { PlayPage } from '../play/play.page';
 })
 export class SalasPage implements OnInit {
   turmas_atuais: turmas
+  usuario_atual: usuario
 
-  private turmas: turmas[] = [{
+  private professor: Boolean
+
+  private turmas: turmas[] = [
+    {
+      professor_id: -1,
+      professor_turmas: []
+    },
+    {
     professor_id: 0, professor_turmas: [
       {
         id: 0,
@@ -44,11 +52,25 @@ export class SalasPage implements OnInit {
     ]
   }]
 
-  constructor(private router: Router, private modalCtrl: ModalController) { }
+  constructor(private router: Router, private route: ActivatedRoute, private modalCtrl: ModalController) { 
+    console.log(this.router.getCurrentNavigation().extras.state)
+    this.route.queryParams.subscribe(params=> {
+      if(this.router.getCurrentNavigation().extras.state){
+        this.usuario_atual = this.router.getCurrentNavigation().extras.state['pessoa']
+        this.professor = true
+      }
+      else{
+        this.professor = false
+      }
+    })
+  }
 
   ngOnInit() {
-    let professor_id = 1
-    this.turmas_atuais = this.turmas.find(id => id.professor_id == professor_id)
+    if (this.professor){
+      this.turmas_atuais = this.turmas.find(id => id.professor_id ==  this.usuario_atual.matricula)
+    }else{
+      this.turmas_atuais = this.turmas.find(id => id.professor_id == -1)
+    }
   }
 
   async show_modal_add_sala(){
