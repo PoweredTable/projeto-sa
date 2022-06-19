@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="">
-  <ion-card *ngFor="let class of current_classes['professor_classes']" class="grid">
+  <ion-card *ngFor="let turma of turmas_atuais['professor_classes']" class="grid">
     <ion-card-header>
-      <ion-card-title class="font-title">{{class.name}}</ion-card-title>
-      <ion-card-title class="font-subtitle">{{class.shift}}</ion-card-title>
+      <ion-card-title class="font-title">{{turma.name}}</ion-card-title>
+      <ion-card-title class="font-subtitle">{{turma.shift}}</ion-card-title>
      
       <ion-card-title id="card-title">
           <ion-button id="back-button" (click)="show_modal_open_blocks()">
@@ -16,7 +16,7 @@
           </ion-button>
       </ion-card-title>  
            
-      <ion-card-subtitle class="font-subtitle1" >{{class.description}}</ion-card-subtitle>
+      <ion-card-subtitle class="font-subtitle1" >{{turma.description}}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 

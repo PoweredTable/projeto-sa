@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CadastroSalaPage } from '../cadastro-sala/cadastro-sala.page';
-import { classes } from '../interfaces/classes_int';
+import { turmas } from '../interfaces/turmas_int';
 import { PlayPage } from '../play/play.page';
 
 
@@ -12,10 +12,10 @@ import { PlayPage } from '../play/play.page';
   styleUrls: ['./salas.page.scss'],
 })
 export class SalasPage implements OnInit {
-  current_classes: classes
+  turmas_atuais: turmas
 
-  private classes: classes[] = [{
-    professor_id: 0, professor_classes: [
+  private turmas: turmas[] = [{
+    professor_id: 0, professor_turmas: [
       {
         id: 0,
         image: new URL('https://addons-media.operacdn.com/media/CACHE/images/themes/42/263442/1.0-rev1/images/22ffecc7ba917f7a434c7f68084ca231/6a6b2992cd8e5a03901c389f03cfa58a.jpg'),
@@ -33,7 +33,7 @@ export class SalasPage implements OnInit {
     ]
   },
   {
-    professor_id: 1, professor_classes: [
+    professor_id: 1, professor_turmas: [
       {
         id: 0,
         image: new URL('https://addons-media.operacdn.com/media/CACHE/images/themes/18/263418/1.0-rev1/images/7909e82f4c528c72bffaff76c6effa46/78d34bc54ccb57095c626b7fdb53c6b5.jpg'),
@@ -48,7 +48,7 @@ export class SalasPage implements OnInit {
 
   ngOnInit() {
     let professor_id = 1
-    this.current_classes = this.classes.find(id => id.professor_id == professor_id)
+    this.turmas_atuais = this.turmas.find(id => id.professor_id == professor_id)
   }
 
   async show_modal_add_sala(){
