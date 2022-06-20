@@ -15,7 +15,10 @@
         <ion-accordion value="bloco1" toggle-icon="arrow-down-circle" *ngFor="let bloco of blocos_atuais['prof_blocos']">
           
           <ion-item slot="header">
+
             <ion-label id="font-header-accord">{{bloco.nome}}</ion-label>
+
+
             <ion-buttons slot="end">
               <ion-button (click)="dismiss_modal()">
                 <ion-icon name="caret-forward-sharp"></ion-icon>
@@ -25,11 +28,14 @@
           
           <ion-list slot="content">
             <ion-item>
+
               <ion-text>{{bloco.descricao}}</ion-text>
+
             </ion-item>
           </ion-list>
         </ion-accordion>
       </ion-accordion-group>
+
 
 
    

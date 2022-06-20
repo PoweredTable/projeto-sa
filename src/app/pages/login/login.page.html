@@ -2,14 +2,14 @@
   <div id="centralize">
     <img src="https://cdn.discordapp.com/attachments/707292830158159885/988222318591475752/Inserir_um_titulo-removebg-preview1.png" alt="" width="250px"> 
     <ion-item id="padding1">
-      <ion-label id="labels">Usuário</ion-label>
+      <ion-label id="labels" position="fixed">Usuário</ion-label>
       <ion-input [(ngModel)]="acesso.login"></ion-input>
       <ion-icon name="person-outline"></ion-icon>
       <!--<img src="https://cdn.discordapp.com/attachments/707292830158159885/986763192053162004/kisspng-computer-icons-user-profile-male-logo-5b123ed133e0d9-1-removebg-preview.png" alt="" width="30px">-->
     </ion-item>
     <ion-item id="inputs">
-      <ion-label>Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="acesso.senha"></ion-input>
+      <ion-label position="fixed">Senha</ion-label>
+      <ion-input type="password"[(ngModel)]="acesso.senha"></ion-input>
       <!--<img src="https://cdn.discordapp.com/attachments/707292830158159885/986765031171579924/4105941-lock-login-password-security-sign-in-sign-out_113932.png" alt="" width="30px" >-->
       <ion-icon name="lock-closed-outline"></ion-icon>
     </ion-item>
