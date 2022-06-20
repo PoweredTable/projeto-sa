@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, UrlTree } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router, UrlTree } from '@angular/router';
 import { professor } from '../interfaces/professor_int';
 
 @Component({
@@ -72,11 +72,16 @@ export class MenuPage implements OnInit {
   }
 
   navigate_to_url(url: string, title: string) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        pessoa: this.usuario_atual
+      }
+    }
     if (url!="/login"){
       this.active_page = title
     }
     if(url!=''){
-      this.router.navigateByUrl(url)
+      this.router.navigate([url], navigationExtras)
     }
   }
 }

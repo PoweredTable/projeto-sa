@@ -38,7 +38,12 @@ export class AppComponent implements OnInit {
           }
         ],
       professores:
-        [
+        [{
+          nome: 'undefined',
+          usuario: 'undefined', 
+          email: 'undefined@gmail.com', 
+          matricula: -1, senha: '', tipo: -1
+        },
           {
             usuario: 'carla_silva',
             nome: "Carla",

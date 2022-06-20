@@ -18,11 +18,11 @@
     font-size: 20px;
 }
 /*background-image: url(https://cdn.discordapp.com/attachments/707292830158159885/987505625787400222/Slide41.jpg);*/
-.grid {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
+// .grid {
+//     display: grid;
+//     grid-gap: 10px;
+//     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+// }
 
 #padding2{
     padding-right: 800px;
@@ -46,9 +46,9 @@ ion-item{
     color: rgb(0, 0, 0);
 }
 
-ion-card{
-    --background:url(https://cdn.discordapp.com/attachments/707292830158159885/988179384366149663/Design_sem_nome3_Easy-Resize.com.jpg);  
-}
+// ion-card{
+//     --background:url(https://cdn.discordapp.com/attachments/707292830158159885/988179384366149663/Design_sem_nome3_Easy-Resize.com.jpg);  
+// }
 #color_icon{
     color: black;
 }
