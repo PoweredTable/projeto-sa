@@ -33,7 +33,7 @@ export class CadastroSalaPage implements OnInit {
     let turma: turma = {
       id: 0, name: this.new_class_FormGroup.value['nome'],
       shift: this.new_class_FormGroup.value['turno'],
-      image: new URL('https://media.discordapp.net/attachments/707292830158159885/988178953569189918/Design_sem_nome2_Easy-Resize.com1.jpg'),
+      image: new URL('https://www.gstatic.com/classroom/themes/img_breakfast_thumb.jpg'),
       description: this.new_class_FormGroup.value['descricao']
     }
     turmas['prof_turmas'].push(Object.assign({}, turma))

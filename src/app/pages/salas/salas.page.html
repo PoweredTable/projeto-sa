@@ -5,7 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="">
-  <ion-card *ngFor="let turma of turmas_atuais['prof_turmas']" class="grid">
+  <ng-container *ngFor="let turma of turmas_atuais['prof_turmas']">
+  <ion-card [ngStyle]="{'background-image': 'url('+turma.image+')'}" class="grid">
+
     <ion-card-header>
       
       <ion-card-title class="font-title" id="color1">{{turma.name}}</ion-card-title>
@@ -21,6 +23,7 @@
 
     </ion-card-header>
   </ion-card>
+</ng-container>
 
 
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
