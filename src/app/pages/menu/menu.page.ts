@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, UrlTree } from '@angular/router';
-import { usuario } from '../interfaces/usuario_int';
+import { professor } from '../interfaces/professor_int';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +9,7 @@ import { usuario } from '../interfaces/usuario_int';
 })
 export class MenuPage implements OnInit {
   active_page: string
-  usuario_atual: usuario
+  usuario_atual: any
 
   pages: { title: string, url: string, icon: string, footer: Boolean }[] = [
     {
@@ -50,7 +50,7 @@ export class MenuPage implements OnInit {
       if(this.router.getCurrentNavigation().extras.state){
         this.usuario_atual = this.router.getCurrentNavigation().extras.state['pessoa']
 
-        console.log('Usuário ', this.usuario_atual.usuario, ' logado!')
+        console.log('Usuário', this.usuario_atual.usuario, 'logado!')
       }
       else{
         this.usuario_atual = {

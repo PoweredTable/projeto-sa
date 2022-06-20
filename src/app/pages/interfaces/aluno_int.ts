@@ -1,4 +1,4 @@
-export interface usuario{
+export interface aluno{
     nome: String,
     matricula: Number,
     email: String,

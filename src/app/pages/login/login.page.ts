@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { usuario } from '../interfaces/usuario_int';
+import { aluno } from '../interfaces/aluno_int';
+import { professor } from '../interfaces/professor_int';
 
 // import api from '../../../Api.js';
 
@@ -20,7 +21,7 @@ export class LoginPage implements OnInit {
     senha: null
   }
 
-  pessoaL: usuario
+  pessoaL: any
   matricula = null //variavel que recebe a matricula do usuario para enviar pra o menu
   verificaLogin = true; //variavel que recebe o valor do ion-toglle
 
@@ -28,10 +29,10 @@ export class LoginPage implements OnInit {
   }
 
   login_in() { //funçao que o botao login chama 
-    let usuarios = JSON.parse(localStorage.getItem('users'))
+    let usuarios = JSON.parse(localStorage.getItem('usuarios'))
 
-    const alunos: usuario[] = usuarios['alunos'];
-    const professores: usuario[] = usuarios['professores']
+    const alunos: aluno[] = usuarios['alunos'];
+    const professores: professor[] = usuarios['professores']
     var encontrado = false
 
     if (this.verificaLogin == false) {//se ion-toggle não estiver ativado faça:
@@ -75,6 +76,7 @@ export class LoginPage implements OnInit {
 
 
   enviaTelaProf() {
+    console.log(this.pessoaL)
     let navigationExtras: NavigationExtras = {
       state: {
         pessoa: this.pessoaL

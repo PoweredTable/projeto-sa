@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { turmas } from '../interfaces/turmas_int';
+import { turma } from '../interfaces/turma_int';
 
 @Component({
   selector: 'app-cadastro-sala',
@@ -12,23 +14,35 @@ export class CadastroSalaPage implements OnInit {
   constructor(private modalCtrl: ModalController) { }
 
   new_class_FormGroup: FormGroup;
+  private prof_matricula: Number
 
   ngOnInit() {
+    console.log(this.prof_matricula)
     this.new_class_FormGroup = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.maxLength(14)]),
-      
+
       turno: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.maxLength(25)])
     })
   }
 
-  submit_modal(){
-    console.log(this.new_class_FormGroup.value)
+  submit_modal() {
+    let turmas_localStorage: turmas[] = JSON.parse(localStorage.getItem('turmas'))
+    let turmas: turmas = turmas_localStorage.find(mat => mat.prof_matricula == this.prof_matricula)
+
+    let turma: turma = {
+      id: 0, name: this.new_class_FormGroup.value['nome'],
+      shift: this.new_class_FormGroup.value['turno'],
+      image: new URL('https://media.discordapp.net/attachments/707292830158159885/988178953569189918/Design_sem_nome2_Easy-Resize.com1.jpg'),
+      description: this.new_class_FormGroup.value['descricao']
+    }
+    turmas['prof_turmas'].push(Object.assign({}, turma))
+    localStorage.setItem('turmas', JSON.stringify(turmas_localStorage))
     this.dismiss_modal()
   }
 
 
-  dismiss_modal(){
+  dismiss_modal() {
     this.modalCtrl.dismiss()
   }
 
