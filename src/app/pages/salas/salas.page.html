@@ -1,20 +1,16 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header><ion-toolbar></ion-toolbar></ion-header>
 
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" class="">
+<ion-content [fullscreen]="true">
   <ng-container *ngFor="let turma of turmas_atuais['prof_turmas']">
-  <ion-card [ngStyle]="{'background-image': 'url('+turma.image+')'}" class="grid">
+  <ion-card [ngStyle]="{'background-image': 'url('+image_from_id(turma.image_id)+')'}" class="grid">
 
     <ion-card-header>
       
-      <ion-card-title class="font-title" id="color1">{{turma.name}}</ion-card-title>
-      <ion-card-title class="font-subtitle" id="color1">{{turma.shift}}</ion-card-title>
+      <ion-card-title id="color1">{{turma.name}}</ion-card-title>
+      <ion-card-title id="color1">{{turma.shift}}</ion-card-title>
      
       <ion-card-title id="card-title">
-          <ion-button id="back-button" (click)="show_modal_open_blocks()">
+          <ion-button (click)="show_modal_open_blocks()">
             <ion-icon name="caret-forward-sharp" size="large" id="color_icon"></ion-icon>
           </ion-button>
       </ion-card-title>  

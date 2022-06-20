@@ -7,15 +7,18 @@
         <ion-icon name="close-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Add Bloco</ion-title>
+    <ion-title>Enviar bloco</ion-title>
   </ion-toolbar>
 
 
       <ion-accordion-group>
-        <ion-accordion value="bloco1" toggle-icon="arrow-down-circle">
+        <ion-accordion value="bloco1" toggle-icon="arrow-down-circle" *ngFor="let bloco of blocos_atuais['prof_blocos']">
           
           <ion-item slot="header">
-            <ion-label id="font-header-accord">Bloco Pergunta 1</ion-label>
+
+            <ion-label id="font-header-accord">{{bloco.nome}}</ion-label>
+
+
             <ion-buttons slot="end">
               <ion-button (click)="dismiss_modal()">
                 <ion-icon name="caret-forward-sharp"></ion-icon>
@@ -25,30 +28,15 @@
           
           <ion-list slot="content">
             <ion-item>
-              <ion-text>Bloco de perguntas hard</ion-text>
+
+              <ion-text>{{bloco.descricao}}</ion-text>
+
             </ion-item>
           </ion-list>
         </ion-accordion>
       </ion-accordion-group>
 
-      <ion-accordion-group>
-        <ion-accordion value="colors" toggle-icon="arrow-down-circle">
-          <ion-item slot="header">
-            <ion-label id="font-header-accord">Bloco Pergunta 2 </ion-label>
-            <ion-buttons slot="end">
-              <ion-button (click)="dismiss_modal()">
-                <ion-icon name="caret-forward-sharp"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-item>
-                    
-          <ion-list slot="content">
-            <ion-item>
-              <ion-text>Bloco de perguntas tranquilas</ion-text>
-            </ion-item>
-          </ion-list>
-        </ion-accordion>
-      </ion-accordion-group>
+
 
    
 </ion-content>

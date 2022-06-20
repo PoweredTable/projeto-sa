@@ -8,7 +8,7 @@ import { professor } from '../interfaces/professor_int';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  active_page: string
+  active_page: string = 'Salas'
   usuario_atual: any
 
   pages: { title: string, url: string, icon: string, footer: Boolean }[] = [
@@ -53,12 +53,14 @@ export class MenuPage implements OnInit {
         console.log('Usuário', this.usuario_atual.usuario, 'logado!')
       }
       else{
+
         this.usuario_atual = {
           nome: 'undefined',
           usuario: 'undefined', 
           email: 'undefined@gmail.com', 
           matricula: -1, senha: '', tipo: -1
         }
+        this.router.navigate([''])
 
         console.log('O login não foi realizado na sessão atual.')
         

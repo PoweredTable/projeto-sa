@@ -49,12 +49,20 @@ ion-item{
     color: rgb(0, 0, 0);
 }
 
-// ion-card{
-//     --background:url(https://cdn.discordapp.com/attachments/707292830158159885/988179384366149663/Design_sem_nome3_Easy-Resize.com.jpg);  
-// }
+
 #color_icon{
     color: black;
 }
+
+ion-card{
+    height: 28%;
+    max-width: 100%;
+    
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+  }
+
 ion-item{
     padding: 0%;
 }

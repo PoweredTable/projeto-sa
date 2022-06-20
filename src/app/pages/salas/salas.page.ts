@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 import { CadastroSalaPage } from '../cadastro-sala/cadastro-sala.page';
+import { imagem } from '../interfaces/imagem_int';
 import { turmas } from '../interfaces/turmas_int';
 import { PlayPage } from '../play/play.page';
 
@@ -14,6 +15,7 @@ import { PlayPage } from '../play/play.page';
 export class SalasPage implements OnInit {
   turmas_atuais: turmas
   usuario_atual: any
+  private imagens: imagem[]
 
   constructor(private router: Router, private route: ActivatedRoute, private modalCtrl: ModalController) {
 
@@ -29,7 +31,6 @@ export class SalasPage implements OnInit {
           email: 'undefined@gmail.com', 
           matricula: -1, senha: '', tipo: -1
         }
-        this.router.navigate([''])
       }
       this.update_turmas_atuais()
     })
@@ -44,6 +45,12 @@ export class SalasPage implements OnInit {
   private update_turmas_atuais(){
     let turmas: turmas[] = JSON.parse(localStorage.getItem('turmas'))
     this.turmas_atuais = turmas.find(mat => mat.prof_matricula == this.usuario_atual.matricula)
+
+    this.imagens = JSON.parse(localStorage.getItem('imagens'))
+  }
+
+  image_from_id(id: Number){
+    return this.imagens.find(imagem => imagem.id == id)['image']
   }
 
 
@@ -70,10 +77,15 @@ export class SalasPage implements OnInit {
   async show_modal_open_blocks() {
     const modal = await this.modalCtrl.create({
       component: PlayPage,
+      componentProps: {
+        prof_matricula: this.usuario_atual.matricula
+      }
 
     })
 
     await modal.present()
+
+    const { role } = await modal.onDidDismiss()
 
   }
 
