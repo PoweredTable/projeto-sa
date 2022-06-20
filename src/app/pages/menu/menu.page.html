@@ -23,8 +23,20 @@
 
       <ion-content>
         <ion-list id="inbox-list">
-          {{usuario_atual.nome}}
-          {{usuario_atual.email}}
+
+
+        
+          <!--{{usuario_atual.nome}}
+          {{usuario_atual.email}}-->
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="https://cdn.discordapp.com/attachments/707292830158159885/988526331274870834/unknown.png" />
+            </ion-avatar>
+            <ion-label>
+              <h3>{{usuario_atual.nome}}</h3>
+              <p>{{usuario_atual.email}}</p>
+            </ion-label>
+          </ion-item>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let page of pages; let i = index">
             <div *ngIf="!page.footer; else footer">
