@@ -7,16 +7,16 @@
   <ion-card class="grid">
     <ion-card-header> 
 
-      <ion-card-title class="font-title">Nome do bloco</ion-card-title>
+      <ion-card-title class="font-title" id="color1">Nome do bloco</ion-card-title>
       <ion-card-title id="card-title">
 
       <ion-card-title id="card-title">
 
           <ion-button id="back-button">
-            <ion-icon name="ellipsis-vertical-sharp"></ion-icon>
+            <ion-icon name="ellipsis-vertical-sharp" id="color_icon"></ion-icon>
           </ion-button>
           
-          <ion-popover trigger="back-button">
+          <ion-popover trigger="back-button" [dismissOnSelect]="true" side="end">
             <ng-template>
               <ion-content>
                 <ion-list>
@@ -30,7 +30,7 @@
       </ion-card-title>  
 
       </ion-card-title>  
-      <ion-card-subtitle class="font-subtitle">Contém perguntas duvidosas</ion-card-subtitle>
+      <ion-card-subtitle class="font-subtitle" id="color1">Contém perguntas duvidosas</ion-card-subtitle>
 
     </ion-card-header>
   </ion-card>
@@ -40,6 +40,10 @@
     <ion-icon md="add" ios="chevron-back-circle-outline" id="color"></ion-icon>
   </ion-fab-button>
 </ion-fab>
+
+
+
+
 
 </ion-content>
 

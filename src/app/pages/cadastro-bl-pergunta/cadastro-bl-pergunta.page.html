@@ -25,11 +25,11 @@
         <ion-input formControlName="nome"></ion-input>
       </ion-item>
       <div *ngIf="new_block_FormGroup.get('nome').hasError('required') && new_block_FormGroup.get('nome').touched">
-        Este campo é obrigatório!
+        <ion-label id="label_alert_input">Este campo é obrigatório!</ion-label> 
       </div>
 
       <div *ngIf="new_block_FormGroup.get('nome').hasError('maxlength') && new_block_FormGroup.get('nome').touched">
-        O nome da turma não pode ter mais de 14 caracteres!
+        <ion-label id="label_alert_input">O nome da turma não pode ter mais de 14 caracteres!</ion-label>
       </div>
 
       <ion-item padding="20px">

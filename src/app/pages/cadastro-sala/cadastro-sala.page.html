@@ -20,19 +20,19 @@
       </ion-toolbar>
 
 
-      <ion-item id="padding1">
+      <ion-item id="">
         <ion-label position="fixed">Nome:</ion-label>
         <ion-input formControlName="nome"></ion-input>
       </ion-item>
       <div *ngIf="new_class_FormGroup.get('nome').hasError('required') && new_class_FormGroup.get('nome').touched">
-        Este campo é obrigatório!
+        <ion-label id="label_alert_input">Este campo é obrigatório!</ion-label>
       </div>
 
       <div *ngIf="new_class_FormGroup.get('nome').hasError('maxlength') && new_class_FormGroup.get('nome').touched">
-        O nome da turma não pode ter mais de 14 caracteres!
+        <ion-label id="label_alert_input">O nome da turma não pode ter mais de 14 caracteres!</ion-label>
       </div>
       
-      <ion-item id="padding1">
+      <ion-item id="">
         <ion-label>Turno:</ion-label>
         <ion-select formControlName="turno" interface="popover">
           <ion-select-option value="Ma">Matutino</ion-select-option>
@@ -40,7 +40,7 @@
           <ion-select-option value="No">Noturno</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item id="padding1">
+      <ion-item id="">
         <ion-label position="stacked">Descrição (opcional)</ion-label>
         <ion-textarea formControlName="descricao"></ion-textarea>
       </ion-item>
