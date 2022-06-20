@@ -52,3 +52,11 @@ ion-item{
 #color_icon{
     color: black;
 }
+ion-card{
+    height: 28%;
+    max-width: 100%;
+    
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+  }

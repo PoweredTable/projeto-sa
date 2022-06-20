@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { imagem } from '../interfaces/imagem_int';
 import { turmas } from '../interfaces/turmas_int';
 import { turma } from '../interfaces/turma_int';
 
@@ -17,12 +18,11 @@ export class CadastroSalaPage implements OnInit {
   private prof_matricula: Number
 
   ngOnInit() {
-    console.log(this.prof_matricula)
     this.new_class_FormGroup = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.maxLength(14)]),
 
       turno: new FormControl('', [Validators.required]),
-      descricao: new FormControl('', [Validators.maxLength(25)])
+      descricao: new FormControl('', [Validators.maxLength(45)])
     })
   }
 
@@ -33,12 +33,18 @@ export class CadastroSalaPage implements OnInit {
     let turma: turma = {
       id: 0, name: this.new_class_FormGroup.value['nome'],
       shift: this.new_class_FormGroup.value['turno'],
-      image: new URL('https://www.gstatic.com/classroom/themes/img_breakfast_thumb.jpg'),
+      image_id: this.get_random_image(),
       description: this.new_class_FormGroup.value['descricao']
     }
     turmas['prof_turmas'].push(Object.assign({}, turma))
     localStorage.setItem('turmas', JSON.stringify(turmas_localStorage))
     this.dismiss_modal()
+  }
+
+  private get_random_image(): Number{
+    let imagens_localStorage: imagem[] = JSON.parse(localStorage.getItem('imagens'))
+    let randomImage: imagem = imagens_localStorage[Math.floor(Math.random() * imagens_localStorage.length)];
+    return randomImage.id
   }
 
 
