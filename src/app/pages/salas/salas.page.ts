@@ -68,6 +68,9 @@ export class SalasPage implements OnInit {
   ngOnInit() {
     this.update_turmas_atuais()
   }
+  ionViewDidEnter(){
+    this.update_turmas_atuais()
+  }
 
   private update_turmas_atuais(){
     let turmas: turmas[] = JSON.parse(localStorage.getItem('turmas'))
