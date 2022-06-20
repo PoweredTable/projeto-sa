@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { ActionSheetController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
+import { popoverController } from '@ionic/core';
+import { BancoPerguntasPage } from '../banco-perguntas/banco-perguntas.page';
 import { CadastroBlPerguntaPage } from '../cadastro-bl-pergunta/cadastro-bl-pergunta.page';
+
+
 
 
 @Component({
@@ -12,7 +15,7 @@ import { CadastroBlPerguntaPage } from '../cadastro-bl-pergunta/cadastro-bl-perg
 })
 export class PerguntasPage implements OnInit {
 
-  constructor(private router: Router, private modalCtrl: ModalController) { }
+  constructor(private router: Router, private modalCtrl: ModalController, private popoverCtrl:PopoverController) { }
 
   ngOnInit() {
   }
@@ -29,5 +32,21 @@ export class PerguntasPage implements OnInit {
   navigate_to_banco_perguntas(){
     this.router.navigate(['banco-perguntas'])
   }
+
+  async show_modal_perguntas(){
+    const modal = await this.modalCtrl.create({
+      component: BancoPerguntasPage
+    })
+
+    await modal.present()
+
+  }
+
+  navigate_to_perguntas(){
+    this.router.navigate(['banco-pergunta'])
+  }
+
+
+
 
 }
