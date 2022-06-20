@@ -6,7 +6,7 @@
 <ion-content [fullscreen]="true" class="">
   <ion-card class="grid" *ngFor="let bloco of blocos_atuais['prof_blocos']">
     <ion-card-header> 
-      {{bloco.data}}
+      <ion-label id="color5">{{bloco.data}}</ion-label>
 
       <ion-card-title class="font-title" id="color1">{{bloco.nome}}</ion-card-title>
       <ion-card-title id="card-title">

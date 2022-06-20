@@ -6,16 +6,16 @@
 
     <ion-card-header>
       
-      <ion-card-title id="color1">{{turma.name}}</ion-card-title>
-      <ion-card-title id="color1">{{turma.shift}}</ion-card-title>
+      <ion-card-title class="font-title" id="color1">{{turma.name}}</ion-card-title>
+      <ion-card-title class="font-subtitle1" id="color1">{{turma.shift}}</ion-card-title>
      
       <ion-card-title id="card-title">
-          <ion-button (click)="show_modal_open_blocks()">
+          <ion-button (click)="show_modal_open_blocks()" id="back-button">
             <ion-icon name="caret-forward-sharp" size="large" id="color_icon"></ion-icon>
           </ion-button>
       </ion-card-title>  
 
-      <ion-card-subtitle class="font-subtitle1" id="color1">{{turma.description}}</ion-card-subtitle>
+      <ion-card-subtitle id="color1">{{turma.description}}</ion-card-subtitle>
 
     </ion-card-header>
   </ion-card>
