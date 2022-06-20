@@ -1,4 +1,4 @@
-export interface a_class {
+export interface turma {
     id: Number,
     image: URL
     name: String,
